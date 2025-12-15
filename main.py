@@ -6,6 +6,7 @@ from datetime import datetime, timedelta, timezone
 from collections import defaultdict, deque
 from flask import Flask
 from threading import Thread
+from keep_alive import keep_alive
 
 TOKEN = os.environ.get("TOKEN")
 if not TOKEN:
@@ -122,15 +123,5 @@ async def role_add(interaction: discord.Interaction, user: discord.Member, role:
     await user.add_roles(role)
     await interaction.response.send_message(f"{user.mention} に `{role.name}` を付与しました")
 
-app = Flask(__name__)
-
-@app.route("/")
-def home():
-    return "Bot is alive"
-
-def run():
-    app.run(host="0.0.0.0", port=8080)
-
-Thread(target=run, daemon=True).start()
-
+keep_alive()
 bot.run(TOKEN)
