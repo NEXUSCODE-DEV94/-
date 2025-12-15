@@ -1,0 +1,22 @@
+# ===== Python =====
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# ===== Virtual Env =====
+venv/
+.env/
+.env.*
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+
+# ===== Editor =====
+.vscode/
+.idea/
+
+# ===== Render =====
+.render/
